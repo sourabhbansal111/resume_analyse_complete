@@ -1,0 +1,12 @@
+Flask==3.0.0
+Flask-CORS==4.0.0
+pdfplumber==0.10.3
+python-dotenv==1.0.0
+Werkzeug==3.0.1
+PyJWT==2.8.0
+bcrypt==4.1.2
+# Optional packages for enhanced features (install separately if needed):
+# scikit-learn - for advanced ML matching: pip install scikit-learn
+# numpy, pandas - for data processing: pip install numpy pandas
+# spacy - for enhanced NLP: pip install spacy && python -m spacy download en_core_web_sm
+
