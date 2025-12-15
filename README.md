@@ -2,6 +2,8 @@
 
 A powerful full-stack application that analyzes resumes, extracts skills using NLP, and matches them with job roles using machine learning. Features secure authentication, company management, and a professional admin panel.
 
+production link:  https://clever-cv.vercel.app/
+
 ## Features
 
 - 🔐 **Secure Authentication**: Login/Signup system with JWT tokens
