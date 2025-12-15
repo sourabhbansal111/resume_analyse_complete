@@ -6,6 +6,7 @@ const API_BASE_URL = 'https://resume-analyse-backend.onrender.com/api';
 
 function App() {
   const [file, setFile] = useState(null);
+  const [uploadedFilename, setUploadedFilename] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [analyzing, setAnalyzing] = useState(false);
   const [skills, setSkills] = useState([]);
@@ -195,6 +196,7 @@ function App() {
 
       if (response.data.success) {
         setSkills(response.data.skills);
+        setUploadedFilename(response.data.filename); // Store the actual filename returned from backend
         setCurrentStep('company-select');
       }
     } catch (err) {
@@ -205,8 +207,8 @@ function App() {
   };
 
   const handleAnalyze = async () => {
-    if (!file) {
-      setError('No file selected');
+    if (!file || !uploadedFilename) {
+      setError('No file selected or file not uploaded');
       return;
     }
 
@@ -214,10 +216,10 @@ function App() {
     setError('');
 
     try {
-      console.log('Analyzing with:', { filename: file.name, company_id: selectedCompany });
+      console.log('Analyzing with:', { filename: uploadedFilename, company_id: selectedCompany });
       
       const response = await axios.post(`${API_BASE_URL}/analyze`, {
-        filename: file.name,
+        filename: uploadedFilename, // Use the actual filename from upload response
         company_id: selectedCompany || null
       });
 
@@ -241,6 +243,7 @@ function App() {
 
   const handleReset = () => {
     setFile(null);
+    setUploadedFilename(null);
     setSkills([]);
     setMatches([]);
     setError('');
@@ -624,11 +627,11 @@ function App() {
                     </div>
                   </div>
 
-                {matches.length === 0 ? (
+                {filteredMatches.length === 0 ? (
                   <div className="no-results">No job matches found.</div>
                 ) : (
                   <div className="matches-grid">
-                    {matches.map((match, index) => (
+                    {filteredMatches.map((match, index) => (
                       <div key={index} className="match-card">
                         <div className="match-card-header">
                           <div className="company-info">
