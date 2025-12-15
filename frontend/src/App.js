@@ -451,6 +451,9 @@ function App() {
       </div>
     );
   }
+  const filteredMatches = matches.filter(
+  match => match.match_score > 20
+);
 
   return (
     <div className="App dark">
@@ -621,11 +624,11 @@ function App() {
                     </div>
                   </div>
 
-                {matches.length === 0 ? (
+                {filteredMatches.length === 0 ? (
                   <div className="no-results">No job matches found.</div>
                 ) : (
                   <div className="matches-grid">
-                    {matches.map((match, index) => (
+                    {filteredMatches.map((match, index) => (
                       <div key={index} className="match-card">
                         <div className="match-card-header">
                           <div className="company-info">
