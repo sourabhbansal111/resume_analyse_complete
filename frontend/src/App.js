@@ -624,11 +624,11 @@ function App() {
                     </div>
                   </div>
 
-                {filteredMatches.length === 0 ? (
+                {matches.length === 0 ? (
                   <div className="no-results">No job matches found.</div>
                 ) : (
                   <div className="matches-grid">
-                    {filteredMatches.map((match, index) => (
+                    {matches.map((match, index) => (
                       <div key={index} className="match-card">
                         <div className="match-card-header">
                           <div className="company-info">
