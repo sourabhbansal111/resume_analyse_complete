@@ -612,6 +612,14 @@ function App() {
                   </div>
                   <button onClick={handleReset} className="btn btn-secondary">Analyze Another Resume</button>
                 </div>
+                <div className="skills-preview">
+                    <h3>Extracted Skills ({skills.length})</h3>
+                    <div className="skills-grid">
+                      {skills.map((skill, index) => (
+                        <span key={index} className="skill-tag">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
 
                 {matches.length === 0 ? (
                   <div className="no-results">No job matches found.</div>
