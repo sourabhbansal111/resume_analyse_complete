@@ -63,6 +63,10 @@ function App() {
     loadCompanies();
     loadJobs();
   }, []);
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
 
   
 
