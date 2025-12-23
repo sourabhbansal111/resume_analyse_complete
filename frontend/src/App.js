@@ -17,7 +17,8 @@ function App() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [showAdmin, setShowAdmin] = useState(false);
   const [adminMode, setAdminMode] = useState('companies');
-  
+  const [previewUrl, setPreviewUrl] = useState(null);
+
   // Auth states
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -173,9 +174,17 @@ function App() {
         return;
       }
       setFile(selectedFile);
+      setPreviewUrl(URL.createObjectURL(selectedFile)); // ✅ added
       setError('');
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
+
 
   const handleUpload = async () => {
     if (!file) {
@@ -509,11 +518,12 @@ function App() {
                         <line x1="12" y1="3" x2="12" y2="15"></line>
                       </svg>
                     </div>
+
                     <h3>Upload Your Resume</h3>
                     <p className="upload-hint">PDF format, max 10MB</p>
-                    
+
                     {error && <div className="error-message">{error}</div>}
-                    
+
                     <input
                       type="file"
                       accept=".pdf"
@@ -521,12 +531,49 @@ function App() {
                       id="file-input"
                       style={{ display: 'none' }}
                     />
+
                     <label htmlFor="file-input" className="upload-button">
-                      <span>{file ? file.name : 'Choose File'}</span>
+                      <span>{file ? 'Change File' : 'Choose File'}</span>
                     </label>
-                    
+
+                    {/* FILE PREVIEW */}
                     {file && (
-                      <button onClick={handleUpload} className="btn btn-primary btn-large" disabled={uploading}>
+                      <div className="file-preview">
+                        <div className="file-preview-info">
+                          <span className="file-icon">📄</span>
+                          <div>
+                            <div className="file-name">{file.name}</div>
+                            <div className="file-size">
+                              {(file.size / (1024 * 1024)).toFixed(2)} MB
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="file-preview-actions">
+                          <a href={previewUrl} target="_blank" rel="noopener noreferrer">
+                            View PDF
+                          </a>
+                          <button
+                            className="remove-file"
+                            onClick={() => {
+                              setFile(null);
+                              setUploadedFilename(null);
+                              setPreviewUrl(null);
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* ANALYZE BUTTON */}
+                    {file && (
+                      <button
+                        onClick={handleUpload}
+                        className="btn btn-primary btn-large"
+                        disabled={uploading}
+                      >
                         {uploading ? (
                           <>
                             <span className="spinner"></span>
@@ -541,6 +588,7 @@ function App() {
                       </button>
                     )}
                   </div>
+
                 </div>
               </div>
             )}

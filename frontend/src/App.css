@@ -1119,3 +1119,41 @@
 .App.dark .auth-container {
   background: linear-gradient(135deg, #0b1220 0%, #0f172a 50%, #111827 100%);
 }
+.file-preview {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #111827;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-preview-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.file-name {
+  font-weight: 600;
+}
+
+.file-size {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.file-preview-actions a {
+  margin-right: 12px;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.remove-file {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+}
