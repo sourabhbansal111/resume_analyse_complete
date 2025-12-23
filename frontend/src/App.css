@@ -1157,30 +1157,28 @@
   color: #ef4444;
   cursor: pointer;
 }
-.file-box {
+.file-name-box {
   width: 100%;
   background: #0f172a;
   border: 1px solid #1f2933;
   border-radius: 12px;
   padding: 14px;
   margin-top: 12px;
-}
-
-.file-name-clickable {
   font-weight: 600;
-  cursor: pointer;
   color: #60a5fa;
-  margin-bottom: 8px;
+  cursor: pointer;
 }
 
-.file-name-clickable:hover {
+.file-name-box:hover {
   text-decoration: underline;
 }
 
-.file-meta {
+.file-meta-outside {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 6px;
+  padding: 0 6px;
 }
 
 .file-size {

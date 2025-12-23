@@ -541,17 +541,17 @@ function App() {
 
                     {/* IF FILE EXISTS */}
                     {file && (
-                      <div className="file-box">
-                        {/* FILE NAME (CLICK = PREVIEW) */}
+                      <>
+                        {/* FILE NAME BOX */}
                         <div
-                          className="file-name-clickable"
+                          className="file-name-box"
                           onClick={() => window.open(previewUrl, '_blank')}
                         >
                           📄 {file.name}
                         </div>
 
-                        {/* SIZE + REMOVE */}
-                        <div className="file-meta">
+                        {/* FILE META OUTSIDE BOX */}
+                        <div className="file-meta-outside">
                           <span className="file-size">
                             {(file.size / (1024 * 1024)).toFixed(2)} MB
                           </span>
@@ -567,7 +567,7 @@ function App() {
                             Remove
                           </button>
                         </div>
-                      </div>
+                      </>
                     )}
 
                     {/* ANALYZE BUTTON */}
@@ -590,6 +590,7 @@ function App() {
                         )}
                       </button>
                     )}
+
                   </div>
 
                 </div>
