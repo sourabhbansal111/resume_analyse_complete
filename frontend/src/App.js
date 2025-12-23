@@ -532,27 +532,30 @@ function App() {
                       style={{ display: 'none' }}
                     />
 
-                    <label htmlFor="file-input" className="upload-button">
-                      <span>{file ? 'Change File' : 'Choose File'}</span>
-                    </label>
+                    {/* IF NO FILE */}
+                    {!file && (
+                      <label htmlFor="file-input" className="upload-button">
+                        Choose File
+                      </label>
+                    )}
 
-                    {/* FILE PREVIEW */}
+                    {/* IF FILE EXISTS */}
                     {file && (
-                      <div className="file-preview">
-                        <div className="file-preview-info">
-                          <span className="file-icon">📄</span>
-                          <div>
-                            <div className="file-name">{file.name}</div>
-                            <div className="file-size">
-                              {(file.size / (1024 * 1024)).toFixed(2)} MB
-                            </div>
-                          </div>
+                      <div className="file-box">
+                        {/* FILE NAME (CLICK = PREVIEW) */}
+                        <div
+                          className="file-name-clickable"
+                          onClick={() => window.open(previewUrl, '_blank')}
+                        >
+                          📄 {file.name}
                         </div>
 
-                        <div className="file-preview-actions">
-                          <a href={previewUrl} target="_blank" rel="noopener noreferrer">
-                            View PDF
-                          </a>
+                        {/* SIZE + REMOVE */}
+                        <div className="file-meta">
+                          <span className="file-size">
+                            {(file.size / (1024 * 1024)).toFixed(2)} MB
+                          </span>
+
                           <button
                             className="remove-file"
                             onClick={() => {
