@@ -1193,50 +1193,47 @@
   cursor: pointer;
   font-weight: 500;
 }
-/* ============================
-   MOBILE NAVBAR FIX (ONLY)
-   ============================ */
+
 @media (max-width: 768px) {
 
-  /* Keep navbar horizontal */
+  /* Keep original desktop layout intact */
   .nav-container {
-    flex-direction: row;
-    align-items: center;
+    position: relative;
   }
 
-  /* Brand stays left */
+  /* Brand stays where it is */
   .nav-brand {
-    align-items: flex-start;
+    position: relative;
+    z-index: 2;
   }
 
-  /* Stack username + logout under brand */
+  /* USER INFO under Clever CV */
   .user-info {
     position: absolute;
-    top: 60px;              /* below navbar */
+    top: 52px;
     left: 16px;
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
 
-  /* Username style */
   .user-name {
     font-size: 0.85rem;
     color: #94a3b8;
   }
 
-  /* Logout below name */
-  .user-info .nav-btn {
-    align-self: flex-start;
-    padding: 6px 14px;
-    font-size: 0.85rem;
-  }
-
-  /* Admin Panel stays on right */
+  /* Admin panel on right of Clever CV */
   .admin-panel-btn {
     position: absolute;
     top: 12px;
     right: 16px;
+  }
+
+  /* Logout under admin panel OR right aligned */
+  .user-info .nav-btn {
+    margin-top: 4px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
   }
 
   /* Login button (not logged in) */
