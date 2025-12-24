@@ -482,7 +482,10 @@ function App() {
           <div className="nav-actions">
             {user && (
               <div className="user-info">
-                <span className="user-name">{user.name}</span>
+                {user.role !== 'admin' && (
+                  <div className='space'></div>
+                )}
+                <span className="user-name">{user.name.split(" ")[0]}</span>
                 {user.role === 'admin' && (
                   <button 
                     className={`nav-btn ${showAdmin ? 'active' : ''}`}
@@ -506,6 +509,35 @@ function App() {
 
         </div>
       </nav>
+      {/* <nav className="navbar">
+        <div className="nav-container">
+          <div className="nav-brand">
+            <span className="brand-icon"><img src="/logo.ico" width={80} alt="📊" /></span>
+            <span className="brand-text">Clever CV</span>
+          </div>
+          <div className="nav-actions">
+            <div className="user-info">
+              <div className='space'></div>
+              <span className="user-name">{'Sourabh Bansal kumar'.split(" ")[0]}</span>
+
+              {/* <button className="nav-btn ap-btn">
+                Admin Panel
+              </button> 
+              <button className="nav-btn">
+                Logout
+              </button>
+            </div>
+
+
+             {!user && (
+              <button className="nav-btn login-btn" onClick={() => setCurrentStep('auth')}>
+                Login
+              </button>
+            )} 
+          </div>
+
+        </div>
+      </nav> */}
 
       <div className="container">
         {!showAdmin ? (
