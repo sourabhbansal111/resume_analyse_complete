@@ -63,7 +63,7 @@ function App() {
     loadCompanies();
     loadJobs();
   }, []);
-  
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentStep]);
@@ -481,27 +481,32 @@ function App() {
           </div>
           <div className="nav-actions">
             {user && (
-              <div className="user-info">
-                <span className="user-name">{user.name}</span>
+              <>
+                <div className="user-info">
+                  <span className="user-name">{user.name}</span>
+                  <button className="nav-btn" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
+
                 {user.role === 'admin' && (
-                  <button 
-                    className={`nav-btn ${showAdmin ? 'active' : ''}`}
+                  <button
+                    className={`nav-btn admin-panel-btn ${showAdmin ? 'active' : ''}`}
                     onClick={() => setShowAdmin(!showAdmin)}
                   >
                     {showAdmin ? '← Back to Analysis' : 'Admin Panel'}
                   </button>
                 )}
-                <button className="nav-btn" onClick={handleLogout}>
-                  Logout
-                </button>
-              </div>
+              </>
             )}
+
             {!user && (
               <button className="nav-btn" onClick={() => setCurrentStep('auth')}>
                 Login
               </button>
             )}
           </div>
+
         </div>
       </nav>
 

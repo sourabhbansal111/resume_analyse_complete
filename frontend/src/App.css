@@ -1193,26 +1193,33 @@
   cursor: pointer;
   font-weight: 500;
 }
-/* ===== Admin navbar alignment (CSS-only) ===== */
+/* ===== Permanent Navbar Alignment ===== */
 
-/* Make user-info stretch */
-.user-info {
+.nav-actions {
   display: flex;
   align-items: center;
+  gap: 16px;
   width: 100%;
 }
 
-/* Username stays left */
-.user-name {
-  margin-right: 12px;
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Logout stays near username */
-.user-info .nav-btn:last-child {
-  margin-right: auto;
-}
-
-/* Admin panel goes to extreme right */
-.user-info .nav-btn.active {
+/* Push Admin Panel to extreme right */
+.admin-panel-btn {
   margin-left: auto;
+}
+@media (max-width: 768px) {
+  .nav-actions {
+    justify-content: space-between;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
 }
