@@ -481,23 +481,20 @@ function App() {
           </div>
           <div className="nav-actions">
             {user && (
-              <>
-                <div className="user-info">
-                  <span className="user-name">{user.name}</span>
-                  <button className="nav-btn" onClick={handleLogout}>
-                    Logout
-                  </button>
-                </div>
-
+              <div className="user-info">
+                <span className="user-name">{user.name}</span>
                 {user.role === 'admin' && (
-                  <button
-                    className={`nav-btn admin-panel-btn ${showAdmin ? 'active' : ''}`}
+                  <button 
+                    className={`nav-btn ${showAdmin ? 'active' : ''}`}
                     onClick={() => setShowAdmin(!showAdmin)}
                   >
                     {showAdmin ? '← Back to Analysis' : 'Admin Panel'}
                   </button>
                 )}
-              </>
+                <button className="nav-btn" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
             )}
 
             {!user && (
