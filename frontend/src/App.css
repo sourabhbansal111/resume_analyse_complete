@@ -1193,3 +1193,26 @@
   cursor: pointer;
   font-weight: 500;
 }
+/* ===== Admin navbar alignment (CSS-only) ===== */
+
+/* Make user-info stretch */
+.user-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Username stays left */
+.user-name {
+  margin-right: 12px;
+}
+
+/* Logout stays near username */
+.user-info .nav-btn:last-child {
+  margin-right: auto;
+}
+
+/* Admin panel goes to extreme right */
+.user-info .nav-btn.active {
+  margin-left: auto;
+}
