@@ -1194,7 +1194,7 @@
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
 
   /* Keep original desktop layout intact */
   .nav-container {
@@ -1241,5 +1241,11 @@
     position: absolute;
     top: 12px;
     right: 16px;
+  }
+
+  .nav-actions > .login-btn {
+    position: absolute;
+    top: 30px;
+    right: 10px;
   }
 }

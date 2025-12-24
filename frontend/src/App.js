@@ -498,7 +498,7 @@ function App() {
             )}
 
             {!user && (
-              <button className="nav-btn" onClick={() => setCurrentStep('auth')}>
+              <button className="nav-btn login-btn" onClick={() => setCurrentStep('auth')}>
                 Login
               </button>
             )}
