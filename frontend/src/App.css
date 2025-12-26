@@ -971,6 +971,10 @@
   
   .admin-form-card {
     position: static;
+    max-width: 100%;
+    padding: 16px;
+    width: 100%;
+    overflow-x: hidden;
   }
   
   .matches-grid {
