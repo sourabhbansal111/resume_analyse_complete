@@ -710,6 +710,7 @@ html, body {
   height: fit-content;
   position: sticky;
   top: 100px;
+  min-width: auto;
 }
 
 .admin-form-card h3 {
