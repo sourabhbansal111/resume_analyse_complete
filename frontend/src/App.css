@@ -1,7 +1,10 @@
 /* Professional Modern Design - Zity.com Style */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
 
 .App {
   min-height: 100vh;
@@ -686,9 +689,12 @@
 
 .admin-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 32px;
+  width: 100%;
+  max-width: 100%;
 }
+
 
 .admin-form-card {
   background: white;
@@ -971,10 +977,6 @@
   
   .admin-form-card {
     position: static;
-    max-width: 100%;
-    padding: 16px;
-    width: 100%;
-    overflow-x: hidden;
   }
   
   .matches-grid {
