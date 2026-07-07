@@ -547,7 +547,7 @@ function App() {
                 <div className="hero-content">
                   <h1 className="hero-title">Find Your Perfect Job Match</h1>
                   <p className="hero-subtitle">AI-powered resume analysis matches you with the best opportunities</p>
-                  
+                  <p className="creator-name">By Sourabh Bansal</p>
                   <div className="upload-card">
                     <div className="upload-icon-large">
                       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
