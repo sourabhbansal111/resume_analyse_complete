@@ -704,7 +704,7 @@ function App() {
                 <div className="results-header">
                   <div>
                     <h2>Job Matches</h2>
-                    <p className="results-subtitle">{matches.length} opportunities found</p>
+                    <p className="results-subtitle">{filteredMatches.length} opportunities found</p>
                   </div>
                   <button onClick={handleReset} className="btn btn-secondary">Analyze Another Resume</button>
                 </div>
